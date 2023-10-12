@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * int add(int, int)-adds two integers and returns the result 
+ *add-adds two integers and returns the result 
  *@n: the firt interger
  *@j: the second interger 
 * Return: sum of n and j
