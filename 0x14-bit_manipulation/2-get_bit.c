@@ -1,29 +1,18 @@
 #include "main.h"
 /**
- * print_bi - print the binary representation of a number recursively
- * @n: the decimal input
- * Return: void
+ * get_bit - get the value of a bit at a given index
+ * @index: the index of the bit to be gotten
+ * @n: the number to check the value of
+ * Return: integer 1 or 0
  */
-void print_bi(unsigned long int n)
+int get_bit(unsigned long int n, unsigned int index)
 {
-	if (n == 0)
-		return;
-	print_bi(n >> 1);
-	if ((n & 1) == 1)
-		_putchar('1');
-	if ((n & 1) == 0)
-		_putchar('0');
-}
-/**
- * print_binary - prints out binary
- * @n: decimal to be converted
- */
-void print_binary(unsigned long int n)
-{
-	if (n == 0)
-		_putchar('0');
-	else
-	{
-		print_bi(n);
-	}
+	unsigned int i;
+
+	if (index > sizeof(size_t) * 8)
+		return (-1);
+
+	for (i = 0; i < index; i++)
+		n = n >> 1;
+	return ((n & 1));
 }
