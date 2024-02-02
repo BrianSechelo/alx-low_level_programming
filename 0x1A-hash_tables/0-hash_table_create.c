@@ -1,5 +1,5 @@
 #include "hash_tables.h"
-/** 
+/**
  * hash_table_create - creates a hash table
  * size - size of hasg table
  * Return - if an error occurs return null
@@ -16,8 +16,8 @@ table->array = malloc(sizeof(hash_table_t) * size);
 if (table->array == NULL)
 	return (NULL);
 
-for (i = 0; i < table->size; i++)
+for (i = 0; i < size; i++)
 	table->array[i] = NULL;
-return table;
+return (table);
 
 }
