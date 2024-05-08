@@ -16,22 +16,34 @@
 int advanced_binary_recursive(int *array, size_t left, size_t right, int value)
 {
 	size_t i;
+
+	/* If the right boundary is less than the left boundary */
 	if (right < left)
-		return(-1);
+		/* Value not found, return -1 */
+		return (-1);
 
-	printf("Searching in array:");
+	printf("Searching in array: ");
+
+	/* Print the [sub]array being searched */
 	for (i = left; i < right; i++)
-		printf("%d,", array[i]);
+
+		printf("%d, ", array[i]);
+
 	printf("%d\n", array[i]);
-	i = left + (right - left)/2;
+	/* Calculate the middle index */
+	i = left + (right - left) / 2;
 
+	/* If the middle element is the value and it's the first occurrence */
 	if (array[i] == value && (i == left || array[i - 1] != value))
-		return(i);
+		/* Return the index */
+		return (i);
 
+	/* If the middle element is greater than or equal to the value */
 	if (array[i] >= value)
-		return(advanced_binary_recursive(array, left, i, value));
-	
-	return(advanced_binary_recursive(array, i + 1, right, value));
+		/* Recursively search the left subarray */
+		return (advanced_binary_recursive(array, left, i, value));
+	/* Recursively search the right subarray */
+	return (advanced_binary_recursive(array, i + 1, right, value));
 }
 
 /**
@@ -47,7 +59,6 @@ int advanced_binary_recursive(int *array, size_t left, size_t right, int value)
 
 int advanced_binary(int *array, size_t size, int value)
 {
-
 	/* Check if the array is NULL or empty */
 	if (array == NULL || size == 0)
 		return (-1);
